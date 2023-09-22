@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import { Box, Container, Typography, Grid, Button, ThemeProvider, Card, CardActions, CardContent, Divider, ImageList, ImageListItem, ListSubheader, ImageListItemBar, IconButton, withTheme } from '@mui/material';
-import imgbg from '../asstes/img/hero/bg1.svg'
+import imgbg from '../asstes/img/hero/bg1.jpg'
 import { theme } from '../App';
 import aboutimg from '../asstes/img/aboutimg.png'
 import TodayIcon from '@mui/icons-material/Today';
@@ -23,6 +23,8 @@ import blog1 from "../asstes/img/blog1.png"
 import StarIcon from '@mui/icons-material/Star';
 import ForumIcon from '@mui/icons-material/Forum';
 import ContatSection from './components/ContatSection';
+import AboutComSection from './components/AboutComSection';
+import PricingSection from './components/PricingSection';
 
 const WorkApi = [
   {
@@ -131,67 +133,13 @@ const Home = () => {
           </Grid>
         </SwiperSlide>
       </Swiper>
-      <Typography component="div" className='about-section' sx={{ background: `url(${imgaboutbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", position: "relative", mb: 5 }}>
-        <Container maxWidth="lg" border="1px solid red">
-        <Grid container >
-          <Grid item lg={6} md={6} sm={12} xs={12} >
-              <Box  className="img-box">
-                <img src={aboutimg} alt="" width="100%" height="100%" sx={{position:"absolute"}} />
-              </Box>
-          </Grid>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Typography className='about-contain-body'>
-              <Typography component="p" className='about-text'><span className='line'></span> About Company</Typography>
-              <Typography variant="h3" className='main-title'>More Than <span className='number-count'>15+</span> Years,we Provide Bussiness Solutions
-              </Typography>
-              <Typography className='sub-title'>Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora.</Typography>
-
-              {/* about prea body 1 */}
-
-              <Typography component="div" sx={{ display: "flex" }} className='about-pera-body'>
-                <Typography component="div" className='icon-body'>
-
-                  <Typography component="div" className='icon-circle'>
-                    <TodayIcon sx={{ color: theme.palette.primary.primaryThemegreen }} className='icon' />
-                  </Typography>
-                </Typography>
-                <Typography>
-                  <Typography variant='h4' className='main-title'>
-                    Smart Bussiness Solutions
-                  </Typography>
-                  <Typography variant='p' className='sub-title'>
-                    Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum,
-                  </Typography>
-                </Typography>
-              </Typography>
-              {/* about prea body 2 */}
-
-              <Typography component="div" sx={{ display: "flex" }} className='about-pera-body'>
-                <Typography component="div" className='icon-body'>
-                  <Typography component="div" className='icon-circle' >
-                    <CodeOffIcon sx={{ color: theme.palette.primary.primaryThemegreen }} className='icon' />
-                  </Typography>
-                </Typography>
-                <Typography>
-                  <Typography variant='h4' className='main-title'>
-                    Smart Bussiness Solutions
-                  </Typography>
-                  <Typography variant='p' className='sub-title'>
-                    Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum,
-                  </Typography>
-                </Typography>
-              </Typography>
-            </Typography>
-          </Grid>
-        </Grid>
-        </Container>
-      </Typography>
+    <AboutComSection/>
 
       <Typography component="div" sx={{ my: 5 }}>
         <Container>
           <Box className='labe-title'>Services</Box>
           <Box className='main-section-title'>Our Services</Box>
-          <input type="range" min="1" max="100" value="30" class="main-title-down-slider" id="myRange" />
+          <Box className="small-line-title-down"></Box>
           <Box className="sub-section-title">All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</Box>
           <Box className="our-service-section">
             <Grid container spacing={3}>
@@ -233,7 +181,7 @@ const Home = () => {
         <Container>
           <Box className='labe-title'>Works</Box>
           <Box className='main-section-title'>Our Portfolio</Box>
-          <input type="range" min="1" max="100" value="30" class="main-title-down-slider" id="myRange" />
+          <Box className="small-line-title-down"></Box>
           <Box className="sub-section-title">All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</Box>
           <Box className='portfolio-link-group' >
             <Link className='portfolio-link active' onClick={() => setworkitem(WorkApi)}>All</Link>
@@ -261,103 +209,14 @@ const Home = () => {
       </Typography>
       <TestimonialSection />
       <Typography component="div" sx={{ my: 5 }}>
-        <Container>
-          <Box className='labe-title'>Pricing</Box>
-          <Box className='main-section-title'>See Pricing Plans </Box>
-          <input type="range" min="1" max="100" value="30" class="main-title-down-slider" id="myRange" />
-          <Box className="sub-section-title">All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</Box>
 
-          <Box className="pricing-plans-section ">
-            <Grid container spacing={2}>
-              <Grid item lg={3} md={4} sm={6} xs={12}>
-                <Card className='card-body'>
-                  <Box className="main-head" >Basic</Box>
-                  <CardContent>
-                    <Box className="price-nunmber">$22</Box>
-                    <Typography className='month-name'>Monthly</Typography>
-                    <Divider className='divider' />
-                    <Typography className='title-list' component="p">Social Media Marketing</Typography>
-                    <Typography className='title-list' component="p">3.100 Keywords</Typography>
-                    <Typography className='title-list' component="p">One Way Link Building</Typography>
-                    <Typography className='title-list' component="p">10 Free Optimization</Typography>
-                    <Typography className='title-list' component="p">5 Press Releases</Typography>
-                  </CardContent>
-                  <CardActions className='btn-section'>
-                    <Button variant="outlined" className='btn' startIcon={<ShoppingCartOutlinedIcon className='shoping-icon' />}>
-                      Order Now
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-              <Grid item lg={3} md={4} sm={6} xs={12}>
-                <Card className='card-body'>
-                  <Box className="main-head" >Standard</Box>
-                  <CardContent>
-                    <Box className="price-nunmber">$32</Box>
-                    <Typography className='month-name'>Monthly</Typography>
-                    <Divider className='divider' />
-                    <Typography className='title-list' component="p">Social Media Marketing</Typography>
-                    <Typography className='title-list' component="p">3.100 Keywords</Typography>
-                    <Typography className='title-list' component="p">One Way Link Building</Typography>
-                    <Typography className='title-list' component="p">10 Free Optimization</Typography>
-                    <Typography className='title-list' component="p">5 Press Releases</Typography>
-                  </CardContent>
-                  <CardActions className='btn-section'>
-                    <Button variant="outlined" className='btn' startIcon={<ShoppingCartOutlinedIcon className='shoping-icon' />}>
-                      Order Now
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-              <Grid item lg={3} md={4} sm={6} xs={12}>
-                <Card className='card-body'>
-                  <Box className="main-head" >Premium</Box>
-                  <CardContent>
-                    <Box className="price-nunmber">$52</Box>
-                    <Typography className='month-name'>Monthly</Typography>
-                    <Divider className='divider' />
-                    <Typography className='title-list' component="p">Social Media Marketing</Typography>
-                    <Typography className='title-list' component="p">3.100 Keywords</Typography>
-                    <Typography className='title-list' component="p">One Way Link Building</Typography>
-                    <Typography className='title-list' component="p">10 Free Optimization</Typography>
-                    <Typography className='title-list' component="p">5 Press Releases</Typography>
-                  </CardContent>
-                  <CardActions className='btn-section'>
-                    <Button variant="outlined" className='btn' startIcon={<ShoppingCartOutlinedIcon className='shoping-icon' />}>
-                      Order Now
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-              <Grid item lg={3} md={4} sm={6} xs={12}>
-                <Card className='card-body'>
-                  <Box className="main-head" >Professional</Box>
-                  <CardContent>
-                    <Box className="price-nunmber">$72</Box>
-                    <Typography className='month-name'>Monthly</Typography>
-                    <Divider className='divider' />
-                    <Typography className='title-list' component="p">Social Media Marketing</Typography>
-                    <Typography className='title-list' component="p">3.100 Keywords</Typography>
-                    <Typography className='title-list' component="p">One Way Link Building</Typography>
-                    <Typography className='title-list' component="p">10 Free Optimization</Typography>
-                    <Typography className='title-list' component="p">5 Press Releases</Typography>
-                  </CardContent>
-                  <CardActions className='btn-section'>
-                    <Button variant="outlined" className='btn' startIcon={<ShoppingCartOutlinedIcon className='shoping-icon' />}>
-                      Order Now
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            </Grid>
-          </Box>
-        </Container>
+        <PricingSection/>
       </Typography>
       <Typography component="div" sx={{ my: 5 }}>
         <Container>
           <Box className='labe-title'>Blog</Box>
           <Box className='main-section-title'>Letest Articales </Box>
-          <input type="range" min="1" max="100" value="30" class="main-title-down-slider" id="myRange" />
+          <Box className="small-line-title-down"></Box>
           <Box className="sub-section-title">All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</Box>
           <Grid container spacing={4} className='blog-section'>
             <Grid item lg={4} md={4} sm={6} xs={12}>
