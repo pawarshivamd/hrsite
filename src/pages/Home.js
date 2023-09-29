@@ -25,6 +25,7 @@ import ForumIcon from '@mui/icons-material/Forum';
 import ContatSection from './components/ContatSection';
 import AboutComSection from './components/AboutComSection';
 import PricingSection from './components/PricingSection';
+import Portfoliosection from './components/Portfoliosection';
 
 const WorkApi = [
   {
@@ -135,7 +136,7 @@ const Home = () => {
       </Swiper>
     <AboutComSection/>
 
-      <Typography component="div" sx={{ my: 5 }}>
+      <Box  sx={{ my: 5 }}>
         <Container>
           <Box className='labe-title'>Services</Box>
           <Box className='main-section-title'>Our Services</Box>
@@ -176,43 +177,15 @@ const Home = () => {
             </Grid>
           </Box>
         </Container>
-      </Typography>
-      <Typography component='div' sx={{ my: 5 }}>
-        <Container>
-          <Box className='labe-title'>Works</Box>
-          <Box className='main-section-title'>Our Portfolio</Box>
-          <Box className="small-line-title-down"></Box>
-          <Box className="sub-section-title">All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</Box>
-          <Box className='portfolio-link-group' >
-            <Link className='portfolio-link active' onClick={() => setworkitem(WorkApi)}>All</Link>
-            <Link className='portfolio-link' onClick={() => filteritem('Development')} >Development</Link>
-            <Link className='portfolio-link' onClick={() => filteritem('ui/ux')}>UI/UX</Link>
-            <Link className='portfolio-link' onClick={() => filteritem('Branding')}>Branding</Link>
-            <Link className='portfolio-link' onClick={() => filteritem('SEO')}>SEO</Link>
-            <Link className='portfolio-link' onClick={() => filteritem('Wordpress')}>Wordpress</Link>
-          </Box>
-
-          <Grid container spacing={3} sx={{ mt: 5 }}>
-            {workitem.map((curEle, index) => {
-              const { imgwork } = curEle;
-              return (
-                <Grid item lg={4} md={6} sm={6} xs={12}>
-                  <Card sx={{ height: "350px" }}>
-                    <img src={imgwork} alt="" width="100%" height="100%" loading='sadf' />
-                  </Card>
-                </Grid>
-              )
-            })}
-
-          </Grid>
-        </Container>
-      </Typography>
+      </Box>
+      <Box  sx={{ my: 5 }}>
+        <Portfoliosection/>
+      </Box>
       <TestimonialSection />
-      <Typography component="div" sx={{ my: 5 }}>
-
+      <Box  sx={{ my: 5 }}>
         <PricingSection/>
-      </Typography>
-      <Typography component="div" sx={{ my: 5 }}>
+      </Box>
+      <Box  sx={{ my: 5 }}>
         <Container>
           <Box className='labe-title'>Blog</Box>
           <Box className='main-section-title'>Letest Articales </Box>
@@ -296,7 +269,7 @@ const Home = () => {
             </Grid>
           </Grid>
         </Container>
-      </Typography>
+      </Box>
       <ContatSection />
 
     </ThemeProvider>

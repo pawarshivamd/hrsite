@@ -46,7 +46,7 @@ const valueworkApi = [
 ]
 const About = () => {
   const [valueapi, setvalueapi] = useState(valueworkApi);
-  const [counterOn, setcounterOn]=useState(false);
+  const [counterOn, setcounterOn] = useState(false);
   return (
     <Box>
       <BgBannerHero
@@ -61,27 +61,26 @@ const About = () => {
       <Box className="counter-body-section">
         <Container>
           <Typography className='main-title'>Businesses all over the world trust <br /> Buffer to build their brand</Typography>
-            <ScrollTrigger onEnter={()=>setcounterOn(true) } onExit={()=>setcounterOn(false)}>
-          <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-around", mt: 5 }} >
-            
-            <Box>
-              <Typography className='counter-num-text' ><span> { counterOn && <CountUp start={0} end={100} duration={2} delay={0}> </CountUp> }</span> years</Typography>
-              <Typography className='sub-title-num' >In Business</Typography>
+          <ScrollTrigger onEnter={() => setcounterOn(true)} onExit={() => setcounterOn(false)}>
+            <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-around", mt: 5 }} >
+              <Box>
+                <Typography className='counter-num-text' ><span> {counterOn && <CountUp start={0} end={100} duration={2} delay={0}> </CountUp>}</span> years</Typography>
+                <Typography className='sub-title-num' >In Business</Typography>
+              </Box>
+              <Box>
+                <Typography className='counter-num-text' ><span>{counterOn && <CountUp start={0} end={7500} duration={2} delay={0}> </CountUp>}+</span></Typography>
+                <Typography className='sub-title-num' >Customers</Typography>
+              </Box>
+              <Box>
+                <Typography className='counter-num-text' ><span>{counterOn && <CountUp start={0} end={100} duration={2} delay={0}> </CountUp>}k+</span></Typography>
+                <Typography className='sub-title-num' >Monthly Blog Readers</Typography>
+              </Box>
+              <Box>
+                <Typography className='counter-num-text' ><span>{counterOn && <CountUp start={0} end={7} duration={2} delay={0}> </CountUp>}m+</span></Typography>
+                <Typography className='sub-title-num' >Social Followers</Typography>
+              </Box>
             </Box>
-            <Box>
-              <Typography className='counter-num-text' ><span>{ counterOn && <CountUp start={0} end={7500} duration={2} delay={0}> </CountUp> }+</span></Typography>
-              <Typography className='sub-title-num' >Customers</Typography>
-            </Box>
-            <Box>
-              <Typography className='counter-num-text' ><span>{ counterOn && <CountUp start={0} end={100} duration={2} delay={0}> </CountUp> }k+</span></Typography>
-              <Typography className='sub-title-num' >Monthly Blog Readers</Typography>
-            </Box>
-            <Box>
-              <Typography className='counter-num-text' ><span>{ counterOn && <CountUp start={0} end={7} duration={2} delay={0}> </CountUp> }m+</span></Typography>
-              <Typography className='sub-title-num' >Social Followers</Typography>
-            </Box>
-          </Box>
-            </ScrollTrigger>
+          </ScrollTrigger>
 
         </Container>
       </Box>
@@ -124,10 +123,10 @@ const About = () => {
           <Box className="small-line-title-down"></Box>
           <Box sx={{ my: 5 }}>
             <Grid container spacing={3}>
-              {valueapi.map((curEle, index) => {
+              {valueapi.map((curEle, i) => {
                 const { imgurl, title, subTitle } = curEle;
                 return (
-                  <Grid item lg={4} md={4} sm={6} xs={12} key="index">
+                  <Grid item lg={4} md={4} sm={6} xs={12} key={`${i}`}>
                     <Card className='value-card'>
                       <Box className='img-box' >
                         <img src={imgurl} className='img' alt='' />
@@ -148,39 +147,39 @@ const About = () => {
           <Box className='main-section-title'>Creative minds </Box>
           <Box className="small-line-title-down"></Box>
           <Box className="sub-section-title">All the lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</Box>
-          <Box sx={{ margin:"50px  0px"}}>
-              <Grid container spacing={3}>
-                <Grid item lg={4} md={4} sm={6} xs={12} className='team-blog-card' >
-                  <Box className="img-box">
-                    <img src={require("../asstes/img/team1user.png")} alt="" className='img' />
-                    <Box className="contain-body">
-                      <Typography className='title'>Michelle A.</Typography>
-                      <Typography className='sub-title'>Web designer</Typography>
-                    </Box>
+          <Box sx={{ margin: "50px  0px" }}>
+            <Grid container spacing={3}>
+              <Grid item lg={4} md={4} sm={6} xs={12} className='team-blog-card' >
+                <Box className="img-box">
+                  <img src={require("../asstes/img/team1user.png")} alt="" className='img' />
+                  <Box className="contain-body">
+                    <Typography className='title'>Michelle A.</Typography>
+                    <Typography className='sub-title'>Web designer</Typography>
                   </Box>
-                </Grid>
-                <Grid item lg={4} md={4} sm={6} xs={12} className='team-blog-card' >
-                  <Box className="img-box">
-                    <img src={require("../asstes/img/team2user.png")} alt="" className='img' />
-                    <Box className="contain-body">
-                      <Typography className='title'>Michelle A.</Typography>
-                      <Typography className='sub-title'>Web designer</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item lg={4} md={4} sm={6} xs={12} className='team-blog-card' >
-                  <Box className="img-box">
-                    <img src={require("../asstes/img/team3user.png")} alt="" className='img' />
-                    <Box className="contain-body">
-                      <Typography className='title'>Michelle A.</Typography>
-                      <Typography className='sub-title'>Web designer</Typography>
-                    </Box>
-                  </Box>
-                </Grid>
+                </Box>
               </Grid>
+              <Grid item lg={4} md={4} sm={6} xs={12} className='team-blog-card' >
+                <Box className="img-box">
+                  <img src={require("../asstes/img/team2user.png")} alt="" className='img' />
+                  <Box className="contain-body">
+                    <Typography className='title'>Michelle A.</Typography>
+                    <Typography className='sub-title'>Web designer</Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item lg={4} md={4} sm={6} xs={12} className='team-blog-card' >
+                <Box className="img-box">
+                  <img src={require("../asstes/img/team3user.png")} alt="" className='img' />
+                  <Box className="contain-body">
+                    <Typography className='title'>Michelle A.</Typography>
+                    <Typography className='sub-title'>Web designer</Typography>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
           </Box>
-          </Container>
-          </Box>
+        </Container>
+      </Box>
     </Box>
   )
 }

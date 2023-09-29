@@ -1,5 +1,5 @@
 import { Box, Container, Rating, Typography, Grid } from '@mui/material'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination,} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,7 +12,8 @@ const TestimonialSection = () => {
         <Box className="testimonial-section">
             <Box className="testimonial-body">
                 <Typography variant='h4' className='main-title'>Client Testimonial</Typography>
-                <input type="range" min="1" max="100" value="30" class="testi-title-down-slider" />
+                {/* <input type="range" min="1" max="100" value="30" className="testi-title-down-slider" /> */}
+                    <Box className=" leftsite-set-line small-line-title-down"></Box>
                 <Typography component='p' className='sub-title'>Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, </Typography>
             </Box>
             <Box className="testimonial-bg-box">

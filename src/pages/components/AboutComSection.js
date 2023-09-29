@@ -6,7 +6,7 @@ import imgaboutbg from '../../asstes/img/bg-about.svg'
 
 const AboutComSection = () => {
   return (
-    <Typography component="div" className='about-section' sx={{ background: `url(${imgaboutbg}) `, backgroundRepeat: "no-repeat", backgroundSize: "cover", position: "relative", mb: 5 }}>
+    <Box  className='about-section' sx={{ background: `url(${imgaboutbg}) `, backgroundRepeat: "no-repeat", backgroundSize: "cover", position: "relative", mb: 5 }}>
     <Container maxWidth="lg" border="1px solid red">
     <Grid container >
       <Grid item lg={6} md={6} sm={12} xs={12} >
@@ -15,7 +15,7 @@ const AboutComSection = () => {
           </Box>
       </Grid>
       <Grid item lg={6} md={6} sm={12} xs={12}>
-        <Typography className='about-contain-body'>
+        <Box className='about-contain-body'>
           <Typography component="p" className='about-text'><span className='line'></span> About Company</Typography>
           <Typography variant="h3" className='main-title'>More Than <span className='number-count'>15+</span> Years,we Provide Bussiness Solutions
           </Typography>
@@ -23,44 +23,44 @@ const AboutComSection = () => {
 
           {/* about prea body 1 */}
 
-          <Typography component="div" sx={{ display: "flex" }} className='about-pera-body'>
-            <Typography component="div" className='icon-body'>
+          <Box  sx={{ display: "flex" }} className='about-pera-body'>
+            <Box  className='icon-body'>
 
-              <Typography component="div" className='icon-circle'>
+              <Box className='icon-circle'>
                 <TodayIcon  className='icon' />
-              </Typography>
-            </Typography>
-            <Typography>
+              </Box>
+            </Box>
+            <Box>
               <Typography variant='h4' className='main-title'>
                 Smart Bussiness Solutions
               </Typography>
               <Typography variant='p' className='sub-title'>
                 Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum,
               </Typography>
-            </Typography>
-          </Typography>
+            </Box>
+          </Box>
           {/* about prea body 2 */}
 
-          <Typography component="div" sx={{ display: "flex" }} className='about-pera-body'>
-            <Typography component="div" className='icon-body'>
-              <Typography component="div" className='icon-circle' >
+          <Box  sx={{ display: "flex" }} className='about-pera-body'>
+            <Box className='icon-body'>
+              <Box className='icon-circle' >
                 <CodeOffIcon  className='icon' />
-              </Typography>
-            </Typography>
-            <Typography>
+              </Box>
+            </Box>
+            <Box>
               <Typography variant='h4' className='main-title'>
                 Smart Bussiness Solutions
               </Typography>
               <Typography variant='p' className='sub-title'>
                 Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum,
               </Typography>
-            </Typography>
-          </Typography>
-        </Typography>
+            </Box>
+          </Box>
+        </Box>
       </Grid>
     </Grid>
     </Container>
-  </Typography>
+  </Box>
   )
 }
 

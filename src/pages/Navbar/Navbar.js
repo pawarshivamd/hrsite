@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LocalPhoneSharpIcon from '@mui/icons-material/LocalPhoneSharp';
 import MailIcon from '@mui/icons-material/Mail';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -9,104 +9,103 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { NavLink } from 'react-router-dom';
 import { theme } from '../../App';
 import logo from '../../asstes/logo/logo.svg'
-import styled from 'styled-components';
+import MenuIcon from '@mui/icons-material/Menu';
+
 const Navbar = () => {
-    const ListGroup = styled.ul`
-    display: flex;
-    flex-wrap:wrap;
-    .list-item {
-      margin-inline: 10px;
 
-      .list-link {
-        color: ${({ theme }) => theme.palette.primary.white};
-        position: relative;
-        font-size: 17px;
-        font-weight:600;
-        &::after {
-          content: "";
-          position: absolute;
-          background: ${({ theme }) => theme.palette.primary.primaryThemegreen};
-          height: 2px;
-          width: 0;
-          left: 0;
-          bottom: -10px;
-          transition: 0.3s;
+    const [showMenu, SetShowMenu] = useState(false);
+    const [fixedNavbar, setFixedNavbar] = useState(false); 
+    const toggleMenu = () => {
+        SetShowMenu(!showMenu);
+
+    };
+    const handleNavLinkClick = () => {
+        if (showMenu) {
+            SetShowMenu(false); 
         }
 
-        &:hover {
-          color: ${({ theme }) => theme.palette.primary.primaryThemegreen};
-        }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', 
+        });
+    };
+    useEffect(() => {
 
-        &.active {
-          color: ${({ theme }) => theme.palette.primary.primaryThemegreen};
-          &::after{
-            width:100%;
-          }
-        }
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
 
-        &:hover::after {
-          width: 100%;
-        }
-      }
-    }
-  `;
+                setFixedNavbar(true);
+            } else {
+                setFixedNavbar(false);
+            }
+        };
 
-
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <nav>
             <Container>
-                <Typography component='div' className='contact-navbar'>
+                <Box className='contact-navbar'>
                     <Typography component='ul' className='phone-section'>
                         <Typography component='li' className='phone-list'><span><LocalPhoneSharpIcon className='icon' sx={{ color: theme.palette.primary.primaryThemegreen }} /></span> +91 81286 83106</Typography>
                         <Typography component='li' className='phone-list'><span><MailIcon className='icon' sx={{ color: theme.palette.primary.primaryThemegreen }} /></span> info@boniksolutions.com</Typography>
                     </Typography>
-                    <Typography component='div'>
+                    <Box>
                         <FacebookIcon sx={{ mx: 1 }} />
                         <InstagramIcon sx={{ mx: 1 }} />
                         <TwitterIcon sx={{ mx: 1 }} />
                         <LinkedInIcon sx={{ mx: 1 }} />
-                    </Typography>
-                </Typography>
+                    </Box>
+                </Box>
             </Container>
-            <Typography sx={{ background: theme.palette.primary.main }} className='main-navbar'>
+            <Box className={`main-navbar ${fixedNavbar ? 'fixed-navbar' : ''}`} >
                 <Container>
-                    <Typography component='div' sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <Typography component='div'>
+                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <Box>
                             <Box >
                                 <img src={logo} alt="logo" />
                             </Box>
-                        </Typography>
-                        <ListGroup style={{ display: "flex" }} className='list-group'>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/'>Home</NavLink>
-                            </li>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/about'>About</NavLink>
-                            </li>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/service'>Service</NavLink>
-                            </li>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/portfolio'>Portfolio</NavLink>
-                            </li>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/blog'>Blogs</NavLink>
-                            </li>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/pricing'>Pricing</NavLink>
-                            </li>
-                            <li className='list-item'>
-                                <NavLink className="list-link" to='/contact'>Contact</NavLink>
-                            </li>
-                        </ListGroup>
-                        <Typography component='div'>
+                        </Box>
+                        <Box className="menubar" onClick={toggleMenu} ><MenuIcon className='menu-icon' /></Box>
+                        <Box className={`menun-section ${showMenu ? 'menu-visible' : 'menu-hidden'}`} >
+                            <ul className='list-group'>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" onClick={handleNavLinkClick} to='/'>Home</NavLink>
+                                </li>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" to='/about' onClick={handleNavLinkClick}>About</NavLink>
+                                </li>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" to='/service' onClick={handleNavLinkClick}>Service</NavLink>
+                                </li>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" to='/portfolio' onClick={handleNavLinkClick}>Portfolio</NavLink>
+                                </li>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" to='/blog' onClick={handleNavLinkClick}>Blogs</NavLink>
+                                </li>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" to='/pricing' onClick={handleNavLinkClick}>Pricing</NavLink>
+                                </li>
+                                <li className='list-item'>
+                                    <NavLink className="list-link" to='/contact' onClick={handleNavLinkClick}>Contact</NavLink>
+                                </li>
+                                <Box className="login-section-ul">
+                                    <Button variant="contained" to='/login' className='login-btn'  >Login in</Button>
+                                </Box>
+                            </ul>
+                        </Box>
+                        <Box className="login-section">
                             <Button variant="contained" to='/login' className='login-btn'  >Login in</Button>
-                        </Typography>
-                    </Typography>
+                        </Box>
+                    </Box>
                 </Container>
-            </Typography>
+            </Box>
         </nav>
-    )
+    );
 }
 
 
